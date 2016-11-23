@@ -10,6 +10,13 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'war'
 
+apply plugin: 'eclipse'
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+}
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -19,7 +26,8 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    providedCompile 'fish.payara.blue.extras:payara-micro:4.1.1.163'
+    providedCompile 'fish.payara.extras:payara-micro:4.1.1.164'
+    providedCompile 'org.projectlombok:lombok:1.16.4'
     
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
@@ -30,6 +38,16 @@ dependencies {
 }
 
 war.baseName = 'ROOT'
+
+task runMicro(type: Exec, dependsOn: war) {
+    println("runMicro")
+    def payaraJarPath = configurations
+                        .providedCompile
+                        .find {it.name =~ /payara-micro.*\.jar/}
+                        .absolutePath
+    def warFile = war.archivePath
+    commandLine('java', '-jar', payaraJarPath, '--deploy', warFile)
+}
 
 task uberJar(type: Exec, dependsOn: war) {
     def payaraJarPath = configurations
