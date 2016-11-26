@@ -13,9 +13,9 @@ import javax.ws.rs.ext.MessageBodyWriter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@javax.ws.rs.ext.Provider
+@Deprecated
 @Produces(MediaType.APPLICATION_JSON)
-public class Provider implements MessageBodyWriter<User> {
+public class JacksonBodyWriter implements MessageBodyWriter<User> {
   ObjectMapper mapper=new ObjectMapper();
   @Override
   public long getSize(User user, Class<?> clazz, Type type, Annotation[] annotations, MediaType mediaType) {
@@ -33,7 +33,6 @@ public class Provider implements MessageBodyWriter<User> {
   public void writeTo(User user, Class<?> clazz, Type type, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> multivaluedMap, OutputStream outputStream)
     throws IOException, WebApplicationException {
     mapper.writeValue(outputStream, user);
-
   }
 
 
