@@ -13,12 +13,14 @@ import org.glassfish.jersey.CommonProperties;
 public class MyApplication extends Application {
   private final Map<String, Object> properties;
   public MyApplication() {
+    Map<String, Object> properties=new HashMap<>();
     properties=new HashMap<>();
     properties.put(CommonProperties.MOXY_JSON_FEATURE_DISABLE, true);
+    this.properties=Collections.unmodifiableMap(properties);
   }
   
   @Override
   public Map<String, Object> getProperties() {
-    return Collections.unmodifiableMap(properties);
+    return properties;
   }
 }

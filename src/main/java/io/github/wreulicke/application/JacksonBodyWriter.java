@@ -19,13 +19,11 @@ public class JacksonBodyWriter implements MessageBodyWriter<User> {
   ObjectMapper mapper=new ObjectMapper();
   @Override
   public long getSize(User user, Class<?> clazz, Type type, Annotation[] annotations, MediaType mediaType) {
-    // TODO Auto-generated method stub
     return -1;
   }
 
   @Override
   public boolean isWriteable(Class<?> clazz, Type type, Annotation[] annotations, MediaType mediaType) {
-    // TODO Auto-generated method stub
     return clazz.isAssignableFrom(User.class);
   }
 
