@@ -1,10 +1,11 @@
-import * as Vue from "vue";
+import * as Vue from "vue"
 
-document.addEventListener('DOMContentLoaded',()=>{
+
+document.addEventListener("DOMContentLoaded",()=>{
   new Vue({
-      el: '#app',
+      el: "#app",
       render(h) {
-          return h('h1', 'hello world')
-      }
+          return h("h1", "hello world")
+      },
   })
 })

@@ -1,5 +1,11 @@
 {
-  "tslint.enable": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "tslint.enable": false,
+  "tslint.autoFixOnSave": false,
+  "files.associations": {
+    "*.ts":"javascript"
+  }
 }

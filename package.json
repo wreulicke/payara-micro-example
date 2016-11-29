@@ -7,9 +7,10 @@
     "vue": "^2.1.3"
   },
   "devDependencies": {
+    "eslint": "^3.11.1",
     "ts-loader": "^1.2.2",
-    "tslint": "^4.0.2",
     "typescript": "^2.0.10",
+    "typescript-eslint-parser": "^1.0.0",
     "webpack": "^1.13.3"
   },
   "scripts": {
