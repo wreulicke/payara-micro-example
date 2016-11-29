@@ -25,7 +25,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "com.moowork.gradle:gradle-node-plugin:0.13"
+    classpath "com.moowork.gradle:gradle-node-plugin:0.14"
   }
 }
 repositories {
@@ -41,6 +41,10 @@ dependencies {
 
 war.baseName = 'ROOT'
 //  war.dependsOn 'npm_install'
+war.dependsOn 'frontBuild'
+task frontBuild(type: NpmTask) {
+  args = ['run', 'build']
+}
 
 task runMicro(type: Exec, dependsOn: war) {
     def payaraJarPath = configurations
