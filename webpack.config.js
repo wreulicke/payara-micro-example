@@ -1,4 +1,3 @@
-const path=require('path')
 module.exports = {
   entry: "./src/main/frontend/index.ts",
   output: {
@@ -13,4 +12,4 @@ module.exports = {
       { test: /\.ts$/, loader: "ts-loader" }
     ]
   }
-};
+}
