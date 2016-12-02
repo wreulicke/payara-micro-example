@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.github.wreulicke.application.User;
+import io.github.wreulicke.application.auth.User;
 
 public class AssertJSandbox {
   @Test
