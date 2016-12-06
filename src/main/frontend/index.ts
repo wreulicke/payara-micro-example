@@ -1,11 +1,37 @@
 import * as Vue from "vue"
 
+const {render, staticRenderFns} = require("./test.html")
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
   new Vue({
-      el: "#app",
-      render(h) {
-          return h("h1", "hello world")
-      },
+    name: "app",
+    el: "#app",
+    data() {
+      return {
+        name: "",
+        password: "",
+        myName: ""
+      }
+    },
+    methods: {
+      login() {
+        const data = this as any
+        fetch("http://localhost:8080/api/example/login", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            name: data.name,
+            password: data.password,
+          })
+        }).then((r) => r.json(), console.log.bind(console)).then((json) => {
+          data.myName = json.name
+        })
+      }
+    },
+    render,
+    staticRenderFns
   })
 })
