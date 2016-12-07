@@ -1,0 +1,14 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "object-literal-sort-keys": false,
+    "no-require-imports": false,
+    "no-var-requires": false,
+    "eofline": false,
+    "no-var-keyword": true
+  }
+}
