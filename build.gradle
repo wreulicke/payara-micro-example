@@ -51,7 +51,7 @@ dependencies {
 
 war.baseName = 'ROOT'
 //  war.dependsOn 'npm_install'
-war.dependsOn 'frontBuild'
+// war.dependsOn 'frontBuild'
 
 task frontBuild(type: NpmTask) {
   args = ['run', 'build']

@@ -9,6 +9,13 @@
     "no-require-imports": false,
     "no-var-requires": false,
     "eofline": false,
-    "no-var-keyword": true
+    "no-var-keyword": true,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "member-access": [
+      false
+    ]
   }
 }

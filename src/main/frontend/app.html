@@ -3,5 +3,5 @@
   <input type="text" name="name" v-model="name" />
   <input type="text" name="password" v-model="password" />
   <button v-on:click="login">click</button>
-  <div id="result">{{myName}}</div>
+  <div v-if="logined" id="result">hello {{name}}!!</div>
 </div>
