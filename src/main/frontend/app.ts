@@ -14,7 +14,7 @@ class App extends Vue implements LoginInfo {
     login({
       name: this.name,
       password: this.password,
-    }).then((_: any) => {
+    }).then(_ => {
       this.logined = true
     })
   }
