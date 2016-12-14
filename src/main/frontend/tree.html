@@ -1,0 +1,10 @@
+<li>
+  <div v-on:click="toggleFolder" v-bind:class="{item:!isFolder,folder:isFolder,tree:true}">
+    {{model.name}}
+  </div>
+  <ul v-show="open" v-if="isFolder" class="none-style">
+    <tree :model="m" v-for="m in model.children">
+    </tree>
+    <li class="add tree">+</li>
+  </ul>
+</li>
