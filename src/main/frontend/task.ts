@@ -1,5 +1,7 @@
-import { Component, Prop, Vue } from "av-ts"
-import addTask, { Task as ITask } from "./module/addTask"
+import { Component, Lifecycle, Vue } from "av-ts"
+import createTree, { Task as ITask } from "./createTree"
+import addTask from "./module/addTask"
+import tasks from "./module/task"
 import TaskInput from "./TaskInput"
 import tree from "./tree"
 
@@ -14,10 +16,15 @@ interface TreeObject {
   ...require("./task.html"),
 })
 class Task extends Vue {
-  @Prop roots: TreeObject[]
+  roots: TreeObject[] = []
+  @Lifecycle mounted() {
+    tasks().then((response: ITask[]) => {
+      this.roots = createTree(response)
+    })
+  }
   addTask(task: ITask) {
-    addTask(task).then(() => {
-      this.roots = this.roots.concat(task)
+    addTask(task).then((taskRes: ITask) => {
+      this.roots = this.roots.concat(taskRes)
     })
   }
 }

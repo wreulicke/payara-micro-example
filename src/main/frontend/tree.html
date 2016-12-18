@@ -1,12 +1,12 @@
 <li>
-  <div v-on:click="toggleFolder" v-bind:class="{item:!isFolder,folder:isFolder,tree:true}">
+  <div v-on:click="toggleFolder" v-on:dblclick="changeFolder" v-bind:class="{item:!isFolder,folder:isFolder,tree:true}">
     {{model.name}}
   </div>
   <transition name="fade">
     <ul v-show="open" v-if="isFolder" class="none-style">
       <tree :model="m" v-for="m in model.children">
       </tree>
-      <li class="add tree">+</li>
+      <task-input :add="addTask" />
     </ul>
   </transition>
 </li>

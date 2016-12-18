@@ -1,29 +1,39 @@
-import { Component, Prop, Vue } from "av-ts"
+import { Component, Lifecycle, Prop, Vue } from "av-ts"
 import addTask, { Task } from "./module/addTask"
+import TaskInput from "./TaskInput"
 
-interface TreeObject {
+interface TaskNode {
+  id: number
   name: string
-  children?: TreeObject[]
+  children?: TaskNode[]
 }
 @Component({
   name: "tree",
+  components: { "task-input": TaskInput },
   ...require("./tree.html"),
 })
 class Tree extends Vue {
   open = false
   name = ""
-  @Prop model: TreeObject
-  get isFolder() {
-    return this.model.children && this.model.children.length > 0
+  isFolder = false
+  @Prop model: TaskNode
+  @Lifecycle mounted() {
+    this.isFolder = this.model.children != null && this.model.children.length > 0
   }
   toggleFolder() {
     this.open = !this.open
   }
+  changeFolder() {
+    if (!this.isFolder) {
+      Vue.set(this.model, "children", [])
+      this.isFolder = true
+      this.open = true
+    }
+  }
   addTask(task: Task) {
+    task.parent = this.model.id
     addTask(task).then((taskRes) => {
-      if (this.model.children != null) {
-        this.model.children = this.model.children.concat(taskRes)
-      }
+      this.model.children!.push(taskRes)
     })
   }
 }

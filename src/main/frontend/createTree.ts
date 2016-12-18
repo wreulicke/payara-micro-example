@@ -1,11 +1,10 @@
-
-interface Task {
+export interface Task {
   id: number
   name: string
   parent?: number
 }
 
-interface TaskNode extends Task {
+export interface TaskNode extends Task {
   children?: TaskNode[]
 }
 
