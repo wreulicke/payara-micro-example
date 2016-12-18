@@ -31,6 +31,7 @@ public class ApplicationResource {
 
   @POST
   @Path("regist")
+  @Authenticated
   @Transactional
   @Produces(MediaType.APPLICATION_JSON)
   public User regist(User user) {
