@@ -18,7 +18,7 @@ body {
   opacity: 0
 }
 .tree:hover {
-  opacity: 0.7;
+  background: #119b94;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 .hide{

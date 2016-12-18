@@ -1,5 +1,5 @@
 import { Component, Vue } from "av-ts"
-import { login, LoginInfo } from "./auth/login"
+import { login, LoginInfo } from "./module/auth/login"
 const template = require("./app.html")
 
 @Component({

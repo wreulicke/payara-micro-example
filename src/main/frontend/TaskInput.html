@@ -1,0 +1,4 @@
+<li class="add tree xxx" @click="toAdd">
+  +
+  <input v-show="isAddMode" @focusout="toInit" ref="taskName" type="text" v-model="name" @keydown.enter="_add">
+</li>
