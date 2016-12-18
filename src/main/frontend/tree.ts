@@ -33,7 +33,7 @@ class Tree extends Vue {
   addTask(task: Task) {
     task.parent = this.model.id
     addTask(task).then((taskRes) => {
-      this.model.children!.push(taskRes)
+      this.model.children!.push({ id: taskRes.id, name: taskRes.name })
     })
   }
 }
