@@ -19,6 +19,7 @@ class TaskInput extends Vue {
   _add() {
     const input = { name: this.name }
     this.add(input)
+    this.name = ""
   }
   @Lifecycle updated() {
     if (this.isAddMode) {

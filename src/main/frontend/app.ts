@@ -1,5 +1,6 @@
 import { Component, Vue } from "av-ts"
-import { login, LoginInfo } from "./module/auth/login"
+import manager from "./module/auth/authManager"
+import { LoginInfo } from "./module/auth/login"
 const template = require("./app.html")
 
 @Component({
@@ -11,10 +12,7 @@ class App extends Vue implements LoginInfo {
   password = ""
   logined = false
   login() {
-    login({
-      name: this.name,
-      password: this.password,
-    }).then(_ => {
+    manager.login(this.name, this.password).then(() => {
       this.logined = true
     })
   }

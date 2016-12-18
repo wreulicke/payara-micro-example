@@ -54,6 +54,7 @@ public class ApplicationResource {
   }
   @GET
   @Path("task")
+  @Authenticated
   @Produces(MediaType.APPLICATION_JSON)
   public List<Task> tasklist(){
     return taskRepository.findAll();
@@ -61,6 +62,7 @@ public class ApplicationResource {
   
   @POST
   @Path("addTask")
+  @Authenticated
   @Produces(MediaType.APPLICATION_JSON)
   public Task addTask(NewTaskRequest task) {
     return taskRepository.add(task);
