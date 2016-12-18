@@ -17,9 +17,11 @@
     "typescript": "^2.1.4",
     "vue-template-compiler": "^2.1.6",
     "vue-template-compiler-loader": "^1.0.4",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
+    "start": "webpack-dev-server",
     "build": "webpack"
   },
   "repository": {
