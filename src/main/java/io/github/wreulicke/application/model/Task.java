@@ -5,10 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.NamedQueries;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQuery;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -17,7 +15,9 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @Entity
-@NamedQueries({})
+@NamedQueries({
+  @NamedQuery(name="Task.findAll",query="Select task from Task task")
+})
 public class Task implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -25,9 +25,6 @@ public class Task implements Serializable {
   @GeneratedValue
   private Long id;
   private String name;
-  @OneToOne
-  @JoinTable(joinColumns = @JoinColumn(referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(referencedColumnName = "id"))
-  private Task parent;
-
+  private Long parent;
 
 }

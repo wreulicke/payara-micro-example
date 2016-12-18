@@ -1,5 +1,7 @@
 package io.github.wreulicke.application;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -50,7 +52,13 @@ public class ApplicationResource {
         return new User().setName(result.getName());
       });
   }
-
+  @GET
+  @Path("task")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Task> tasklist(){
+    return taskRepository.findAll();
+  }
+  
   @POST
   @Path("addTask")
   @Produces(MediaType.APPLICATION_JSON)

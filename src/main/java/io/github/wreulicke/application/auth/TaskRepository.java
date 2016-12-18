@@ -1,5 +1,6 @@
 package io.github.wreulicke.application.auth;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -20,9 +21,9 @@ public class TaskRepository {
   @Transactional
   public Task add(NewTaskRequest task) {
     if (task.getParent() != null) {
-      this.find(task.getParent())
+      return this.find(task.getParent())
         .map((parent) -> add(new Task().setName(task.getName())
-          .setParent(parent)))
+          .setParent(parent.getId())))
         .orElseThrow(() -> new InvalidAccessException("invalid access"));
     }
     return add(new Task().setName(task.getName()));
@@ -35,5 +36,10 @@ public class TaskRepository {
 
   public Optional<Task> find(Long id) {
     return Optional.ofNullable(em.find(Task.class, id));
+  }
+
+  public List<Task> findAll() {
+    return em.createNamedQuery("Task.findAll", Task.class)
+      .getResultList();
   }
 }
