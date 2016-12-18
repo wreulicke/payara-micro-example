@@ -17,6 +17,9 @@ class TaskInput extends Vue {
     this.name = ""
   }
   _add() {
+    if (this.name === "") {
+      return
+    }
     const input = { name: this.name }
     this.add(input)
     this.name = ""
