@@ -6,8 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import io.github.wreulicke.application.auth.User;
 import io.github.wreulicke.application.auth.UserRepository;
+import io.github.wreulicke.application.model.User;
 
 @ApplicationScoped
 public class UserManager {

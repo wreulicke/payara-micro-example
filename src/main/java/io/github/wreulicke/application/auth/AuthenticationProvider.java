@@ -13,13 +13,12 @@ import javax.ws.rs.ext.Provider;
 @Authenticated
 @ApplicationScoped
 public class AuthenticationProvider implements ContainerRequestFilter {
-  
+
   @Inject
   RoleManager manager;
 
   @Override
   public void filter(ContainerRequestContext context) throws IOException {
-    System.out.println("filter");
     if (!manager.fetch()
       .isPresent())
       context.abortWith(Response.status(Response.Status.UNAUTHORIZED)

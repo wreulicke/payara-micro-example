@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.enterprise.context.SessionScoped;
 
+import io.github.wreulicke.application.model.User;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 

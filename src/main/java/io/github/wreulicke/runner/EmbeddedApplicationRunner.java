@@ -1,4 +1,4 @@
-package io.github.wreulicke.application;
+package io.github.wreulicke.runner;
 
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;

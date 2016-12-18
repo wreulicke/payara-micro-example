@@ -3,17 +3,18 @@ package io.github.wreulicke.application.auth;
 import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import io.github.wreulicke.application.InvaliAccessException;
+import io.github.wreulicke.application.exception.InvalidAccessException;
+import io.github.wreulicke.application.model.User;
 
 @ApplicationScoped
 public class UserRepository {
-  @PersistenceContext(unitName = "RoleUnit")
+  @Inject
   EntityManager em;
 
 
@@ -25,7 +26,7 @@ public class UserRepository {
       em.persist(newUser);
       return user;
     }
-    throw new InvaliAccessException("permission denied");
+    throw new InvalidAccessException("permission denied");
   }
 
   public Optional<User> find(User user) {

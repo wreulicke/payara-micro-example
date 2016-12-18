@@ -1,10 +1,11 @@
 package io.github.wreulicke.application;
 
-import lombok.Data;
+import lombok.Value;
 import lombok.experimental.Accessors;
 
-@Data
+@Value
 @Accessors(chain=true)
-public class Prisoner {
+public class NewTaskRequest {
   private String name;
+  private Long parent;
 }

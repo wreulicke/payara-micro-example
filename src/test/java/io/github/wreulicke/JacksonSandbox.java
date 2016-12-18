@@ -11,7 +11,7 @@ import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
 import com.fasterxml.jackson.module.jsonSchema.JsonSchemaGenerator;
 import com.fasterxml.jackson.module.jsonSchema.types.ObjectSchema;
 
-import io.github.wreulicke.application.auth.User;
+import io.github.wreulicke.application.model.User;
 
 public class JacksonSandbox {
   private static final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);

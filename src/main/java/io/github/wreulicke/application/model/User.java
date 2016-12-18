@@ -1,4 +1,4 @@
-package io.github.wreulicke.application.auth;
+package io.github.wreulicke.application.model;
 
 import java.io.Serializable;
 
