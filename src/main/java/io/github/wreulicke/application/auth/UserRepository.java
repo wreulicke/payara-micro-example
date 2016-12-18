@@ -19,7 +19,7 @@ public class UserRepository {
 
 
   @Transactional
-  public User regist(User user) {
+  public User register(User user) {
     if (!findByName(user.getName()).isPresent()) {
       User newUser = new User().setName(user.getName())
         .setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));

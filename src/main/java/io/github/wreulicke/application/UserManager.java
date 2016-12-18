@@ -19,7 +19,7 @@ public class UserManager {
   }
 
   public User regist(User user) {
-    return repository.regist(user);
+    return repository.register(user);
   }
 
 
@@ -27,9 +27,9 @@ public class UserManager {
   public void initialize() {
     User admin = new User().setName("admin")
       .setPassword("admin");
-    repository.regist(admin);
+    repository.register(admin);
     User user = new User().setName("user")
       .setPassword("user");
-    repository.regist(user);
+    repository.register(user);
   }
 }
