@@ -2,7 +2,7 @@ export interface Task {
   name: string
   parent?: number
 }
-export default async function login(task: Task) {
+export default async function addTask(task: Task) {
   const response = await fetch("http://localhost:8080/api/example/addTask", {
     method: "POST",
     headers: {
