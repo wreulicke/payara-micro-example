@@ -18,7 +18,7 @@ public class UserManager {
     return repository.find(user);
   }
 
-  public User regist(User user) {
+  public User register(User user) {
     return repository.register(user);
   }
 

@@ -35,7 +35,7 @@ public class ApplicationResource {
   @Transactional
   @Produces(MediaType.APPLICATION_JSON)
   public User regist(User user) {
-    userManager.regist(user);
+    userManager.register(user);
     manager.setUser(user);
     return user;
   }
