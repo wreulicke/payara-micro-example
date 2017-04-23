@@ -1,26 +1,27 @@
+var path = require('path')
 module.exports = {
   devServer: {
     contentBase: "src/main/webapp/",
     port: 3000,
   },
   devtool: "source-map",
-  entry: "./src/main/frontend/index.ts",
+  entry: path.resolve("./src/main/frontend/index.ts"),
   output: {
-    path: "./src/main/webapp",
+    path: path.resolve("./src/main/webapp"),
     filename: "bundle.js",
   },
   resolve: {
-    extensions: ["", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
-        loader: "ts-loader",
+        use: "ts-loader",
       },
       {
         test: /\.html$/,
-        loader: "vue-template-compiler-loader",
+        use: "vue-template-compiler-loader",
       },
     ],
   },
